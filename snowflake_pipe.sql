@@ -11,7 +11,7 @@ COPY INTO events
 FROM @ecommerce_stage
 FILE_FORMAT = (TYPE = 'CSV',SKIP_HEADER=1);
 
--- run below command and get the notification_channel to add in s3 bucket properties 
+-- run below command and get the notification_channel(sqs arn) to add in s3 bucket properties 
 show pipes;
 
 
