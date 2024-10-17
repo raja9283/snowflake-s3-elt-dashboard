@@ -33,10 +33,13 @@ This proof-of-concept (POC) demonstrates a real-time data pipeline using **Snowf
 ## **Superset Dashboard**
 
 The **Superset** dashboard visualizes key metrics and insights derived from the `enriched_events` view. Some of the key analyses include:
-1. **Total Revenue by Product Category**
-2. **Customer Segmentation by Age Group**
-3. **Top Products by Sales Volume**
-4. **Revenue by Customer Location**
+1. **KPI Cards**
+2. **Total Revenue by Product Category**
+3. **Customer Segmentation by Age Group**
+4. **Top Products by Sales Volume**
+5. **Revenue by Customer Location**
+6. **Orders Trend By Category**
+
 
 ---
 
@@ -49,7 +52,7 @@ The **Superset** dashboard visualizes key metrics and insights derived from the 
    - Utilized Snowflake's SQL capabilities for enriching raw event data by joining with product and customer details.
    
 3. **Data Analytics**:
-   - Leveraged **Apache Superset** to create interactive dashboards for business metrics such as product sales, customer behavior, and revenue analysis.
+   - Leveraged **Apache Superset** to create interactive dashboards for business metrics such as product sales, customer analysis, and revenue analysis.
 
 4. **Scalable Cloud Solution**:
    - Demonstrated a scalable architecture using **AWS S3**, **Snowflake**, and **Superset** for handling large volumes of data and performing real-time analytics.
@@ -60,7 +63,7 @@ The **Superset** dashboard visualizes key metrics and insights derived from the 
 
 1. **Snowflake Setup**:
    - Execute `table_ddl.sql` to create the necessary tables for event data, products, and customers.
-   - Load initial product and customer data into Snowflake.
+   - Load initial product and customer data into Snowflake.(Sample data is available inside the data folder)
 
 2. **Snowpipe Configuration**:
    - Set up the Snowflake stage and pipe using the SQL from `snowflake_pipe.sql`.
@@ -71,7 +74,7 @@ The **Superset** dashboard visualizes key metrics and insights derived from the 
 
 4. **Dashboard Setup**:
    - Connect **Superset** to your Snowflake instance.
-   - Use the provided queries to visualize key metrics.
+   - Create dashboards using the transformed data from the `enriched_events` table.
 
 ---
 
