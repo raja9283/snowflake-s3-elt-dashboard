@@ -40,6 +40,8 @@ The **Superset** dashboard visualizes key metrics and insights derived from the 
 5. **Revenue by Customer Location**
 6. **Orders Trend By Category**
 
+![screenshot (1)](https://github.com/user-attachments/assets/7d8383ff-e4a2-43a6-8280-da9f6e6b8663)
+
 
 ---
 
