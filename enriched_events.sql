@@ -24,6 +24,10 @@ SELECT
     products.subcategory,
     customers.customer_name,
     customers.location,
+sdd
+sd
+    dfdf
+    dfdf
     customers.AGE_GROUP,
 FROM events AS events
 LEFT JOIN products
