@@ -24,17 +24,9 @@ This proof-of-concept (POC) demonstrates a real-time data pipeline using **Snowf
 
 ## **Files and Directories**
 
-### **1. `table_ddl.sql`**
-This file contains the DDL statements for creating the tables:
-- **`ecommerce_events`**: Raw event data streamed from S3.
-- **`products`**: Product details such as name, category, and price.
-- **`customers`**: Customer details such as name, age group, and location.
-
-### **2. `snowflake_pipe.sql`**
-This file contains the SQL commands for setting up the **Snowflake stage** and **Snowpipe** to ingest data from an AWS S3 bucket using **SQS** for real-time streaming.
-
-### **3. `enriched_events.sql`**
-This file contains the SQL logic to transform raw event data by joining it with product and customer tables to create an **enriched events** table for analytics and visualization.
+- **`table_ddl.sql`**: Contains the DDL statements for creating the `ecommerce_events`, `products`, and `customers` tables.
+- **`snowflake_pipe.sql`**: Contains SQL commands for creating a stage and Snowpipe to stream data from an AWS S3 bucket into Snowflake.
+- **`enriched_events.sql`**: Contains the SQL logic for transforming raw data into an `enriched_events` table by joining it with the customer and product tables.
 
 ---
 
@@ -46,13 +38,43 @@ The **Superset** dashboard visualizes key metrics and insights derived from the 
 3. **Top Products by Sales Volume**
 4. **Revenue by Customer Location**
 
-### Example Queries for Superset:
+---
 
-- **Total Revenue by Product Category**:
+## **Snowflake Features Demonstrated**
 
-```sql
-SELECT
-    category,
-    SUM(price * quantity) AS total_revenue
-FROM enriched_events
-GROUP BY category;
+1. **Snowpipe for Real-time Streaming**:
+   - Integrated Snowpipe with AWS S3 and SQS for seamless, real-time data ingestion.
+   
+2. **Data Transformation (ELT)**:
+   - Utilized Snowflake's SQL capabilities for enriching raw event data by joining with product and customer details.
+   
+3. **Data Analytics**:
+   - Leveraged **Apache Superset** to create interactive dashboards for business metrics such as product sales, customer behavior, and revenue analysis.
+
+4. **Scalable Cloud Solution**:
+   - Demonstrated a scalable architecture using **AWS S3**, **Snowflake**, and **Superset** for handling large volumes of data and performing real-time analytics.
+
+---
+
+## **How to Run the POC**
+
+1. **Snowflake Setup**:
+   - Execute `table_ddl.sql` to create the necessary tables for event data, products, and customers.
+   - Load initial product and customer data into Snowflake.
+
+2. **Snowpipe Configuration**:
+   - Set up the Snowflake stage and pipe using the SQL from `snowflake_pipe.sql`.
+   - Ensure S3 bucket is properly configured, and SQS is connected to trigger real-time ingestion.
+
+3. **Data Transformation**:
+   - Execute the SQL in `enriched_events.sql` to create a view that joins the event data with product and customer details.
+
+4. **Dashboard Setup**:
+   - Connect **Superset** to your Snowflake instance.
+   - Use the provided queries to visualize key metrics.
+
+---
+
+## **Conclusion**
+
+This POC showcases the real-time data ingestion, transformation, and analytics capabilities of **Snowflake** combined with AWS S3 and **Apache Superset**. By leveraging Snowpipe, we can seamlessly stream data from an S3 bucket, enrich it with business context (product and customer details), and visualize real-time metrics to make data-driven decisions.
